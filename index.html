@@ -1,0 +1,139 @@
+<head>
+    <title>Andy Kamath · Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <script id="twitter-wjs" src="http://platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="/js/WOW.js"></script>
+    <script type="text/javascript">
+    new WOW().init();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+    <div class="hero" id="main" style="background: #e31937;height: 100%;color: #FFF">
+        <div class="container" style="height: 100%">
+            <div id="logo" style="width: 50%;position:relative;float:left"></div>
+            <div class="element" id="maintext">
+                <h1 style="color: #FFF" class="title wow fadeInUp" data-wow-delay="1s">ANDY'S <span class="animated fadeInUp title" style="-webkit-animation-delay: 1750ms;animation-delay: 1750ms">EAGLE PROJECT</span></h1>
+                <a id="scrolldown" onclick="shrink()" style="color: #FFF"><span class="fa-stack fa-lg animated fadeInDown h1" style="-webkit-animation-delay: 2s;animation-delay: 2s">
+                    <i class="fa fa-circle-thin fa-stack-2x h1"></i>
+                    <i class="fa fa-angle-down fa-stack-1x h1"></i>
+                </span></a>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="container">
+            <h1 class="wow fadeInDown" data-wow-delay="500ms">ABOUT ME</h1>
+            <hr style="width: 25%;border-bottom: 5px solid #000" class="wow zoomIn" data-wow-delay="1s">
+            <div class="row wow fadeIn" data-wow-delay="">
+                <div class="col m9">
+                    <h4>My name is Andy Kamath. I've been in the Boy Scouts of America since 2008 as a Webelo Scout. After eight amazing years of Scouting, I am just a few steps away from the coveted Eagle Scout.<br><br><a href="#project">What I'm actually doing</a></h4>
+                </div>
+                <div class="col m3 s0">
+                    <div class="square" style="width: 100%;background: url('img/scout.jpg');background-size:cover;background-position:center;border-radius:50%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="project">
+        <div class="container">
+            <h1 class="wow fadeInDown" data-wow-delay="500ms">WHAT I'M DOING</h1>
+            <hr style="width: 25%;border-bottom: 5px solid #000" class="wow zoomIn" data-wow-delay="1s">
+            <br>
+            <br>
+            <div class="row wow fadeIn" data-wow-delay="">
+                <div class="col m3">
+                    <div class="square" style="width: 100%;" id="stack">
+                    </div>
+                </div>
+                <div class="col m9 s0">
+                    <h4>I'm building 5 benches in the duck pond at Elizabeth Lane Elementary School, which I attended from Kindergarten all the way through 5th grade. I'm also cutting down all the weeds in the pond and building a birdfeeder. I'm working <b>September 10, 17, 18, and 24 from 10AM - 4:30 PM</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" style="background: #005596;color: #FFF">
+        <div class="container" align="center">
+            <a href="" style="color: #FFF"><h1 class="title">I'd love your help! Click here to donate on Tilt <i class="fa fa-caret-right"></i></h1></a>
+        </div>
+    </div>
+    <div style="background: #005596;color: #FFF" align="center">
+        <p>Made with <i class="fa fa-heart animated infinite pulse" style="color: #F00"></i> and jQuery by <a href="http://andykamath.com">Andy Kamath</a></p>
+    </div>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/vivus/latest/vivus.min.js"></script>
+    <script type="text/babel" src="/js/app.js"></script>
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+            this.toggleClass("active");
+        });
+    });
+    $("#about").hide()
+    var divs = $('span[id^="content-"]').hide(),
+        i = 0;
+
+    (function cycle() {
+
+        divs.eq(i).fadeIn(400)
+            .delay(1000)
+            .fadeOut(400, cycle);
+
+        i = ++i % divs.length;
+
+    })();
+    if ($(window).height() < 845) {
+        $("#logo").hide()
+        $("#maintext").css('width', $(window).width())
+    }
+
+    new Vivus('logo', {
+        duration: 50,
+        file: '/img/logo.svg'
+    }, console.log('swag'))
+    new Vivus('stack', {
+        duration: 75,
+        file: '/img/stack.svg'
+    }, console.log('swag'));
+
+    function shrink() {
+        $("#about").fadeIn()
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            $("#main").animate({
+                'height': '-=' + $(window).height()
+            }, 500, console.log('swag'))
+        } else {
+            $("#main").animate({
+                'height': '-=' + $('#about').height()
+            }, 500, console.log('swag'))
+        }
+        $(".square").css('height', $(".square").width())
+        $("#scrolldown").hide()
+        if ($(window).height() < 845) {
+            $("#logo").fadeOut()
+            $("#maintext").css('width', $(window).width())
+        }
+    }
+    </script>
+</body>
